@@ -36,6 +36,9 @@ function buildTicket(allRides, passRides, pick) {
     }
 }
 
-var ticket = buildTicket(parkRides, fastPassQueue, wantsRide);
+// invoking function:
 
+var ticket = buildTicket(parkRides, fastPassQueue, wantsRide);
 ticket();
+// or 
+buildTicket(parkRides, fastPassQueue, wantsRide)();
