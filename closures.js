@@ -49,7 +49,35 @@ function makeTorpedoAssigner(passengerArray){
 }
 
 var getTorpedoFor = makeTorpedoAssigner(subPassengers);
-getTorpedoFor("Chewie");
+//getTorpedoFor("Chewie");
+
+// from challenges
+
+var listOfSharks = ["Sea Pain", "Great Wheezy",
+                    "DJ Chewie", "Lil' Bitey",
+                    "Finmaster Flex", "Swim Khalifa",
+                    "Ice Teeth", "The Notorious J.A.W."];
+
+var listOfTargets = ["icicle bat", "snow yeti",
+                     "killer penguin", "frost tiger",
+                     "polar bear", "iceberg",
+                     "blue witch", "wooly mammoth"];
+                     
+function makeTargetAssigner(sharks, targets) {
+  return function(shark){
+    for (var i = 0; i < sharks.length; i++){
+      if (shark == sharks[i]){
+        alert("Hey, " + shark + "! " +
+"There've been " + targets[i] + " sightings in our area! " +
+"Time to take care of business!");
+      }  
+    }
+  };
+}
+
+var getTargetFor = makeTargetAssigner(listOfSharks,
+                                      listOfTargets);
+getTargetFor("Ice Teeth");
 
 
 
