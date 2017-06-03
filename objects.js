@@ -49,3 +49,55 @@ function addBook (box, name, writter){
 }
 
 console.log(myBox.book1.title);
+
+
+
+
+var vehicle1 = {type: "Motorboat", capacity: 6, storedAt: "Ammunition Depot"};
+var vehicle2 = {type: "Jet Ski", capacity: 1, storedAt: "Reef Dock"};
+var vehicle3 = {type: "Submarine", capacity: 8, storedAt: "Underwater Outpost"};
+
+var vehicles = [vehicle1, vehicle2, vehicle3];
+
+
+function findVehicle (name, list){
+  for (var i = 0; i < list.length; i++){
+    if( list[i].type == name){
+     return  list[i].storedAt;
+    }
+  }
+}
+
+
+console.log(findVehicle("Submarine", vehicles));
+
+
+// object's functions
+
+var aquarium ={
+    Nemo: {type:"fish", species: "clownfish", length:3.7},
+    Marlin: {type:"fish", species: "clownfish", length:4.1},
+    Dory: {type:"fish", species: "blue tang", length:6.2},
+    Peach: {type:"echinoderm", species: "starfish", length:5.3},
+    "Coral Castle": {type: "environment", material: "coquina", moves: false},
+    "Dragon Statue": {type: "environment", material: "plastic", moves: false},
+
+    addCritter: function (name, type, species, length){
+        this[name] = {type: type, species:species, length:length};
+    }
+}
+
+aquarium.takeOut = function(name){
+    this[name].name = name;
+    var temp = this[name];
+    delete this[name];
+    return temp;
+}
+
+aquarium.addCritter("Bubbles", "fish", "yellow tang", 5.6);
+
+console.log(aquarium);
+
+var toy = aquarium.takeOut("Dragon Statue");
+
+console.log(toy);
