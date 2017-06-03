@@ -101,3 +101,19 @@ console.log(aquarium);
 var toy = aquarium.takeOut("Dragon Statue");
 
 console.log(toy);
+
+
+//enumeration with the for-in loop
+
+/*
+for (key in aquarium){
+    console.log(key);
+}*/
+
+var numFish = 0;
+for (key in aquarium){
+    if (aquarium[key].type == "fish"){
+        numFish++;
+    }
+}
+console.log(numFish);
