@@ -46,7 +46,8 @@ Properties of all Objects:
  - call()
  - apply()
 */
-
+ 
+ 
 var myString = "hedgehog hedgehog HOGLET";
 console.log(myString.hasOwnProperty("charAt"));
 
