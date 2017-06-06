@@ -47,7 +47,7 @@ Properties of all Objects:
  - apply()
 */
  
- 
+
 var myString = "hedgehog hedgehog HOGLET";
 console.log(myString.hasOwnProperty("charAt"));
 
@@ -65,3 +65,25 @@ String.prototype.countAll = function (letter) {
 }
 
 console.log (myString.countAll("h"));
+
+
+
+
+Object.prototype.noCalvesYet = function() {
+  if (this.type == "cow" && this.hadCalf == null) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+Array.prototype.countForBreeding = function() {
+  var numToBreed = 0;
+  for (var i = 0; i < this.length; i++) {
+    if (this[i].noCalvesYet()) {
+      numToBreed++;
+    }
+  }
+  return numToBreed;
+};
+
