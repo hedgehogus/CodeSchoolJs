@@ -87,3 +87,38 @@ Array.prototype.countForBreeding = function() {
   return numToBreed;
 };
 
+// using inheritance, we can create new Objects with our Objects as prototypes
+
+var shoe = { size: 6, gender: "women", construction: "slipper"};
+
+var magicShoe = Object.create(shoe);
+
+shoe.heels = "true";
+
+magicShoe.color = "red";
+
+console.log(shoe);
+console.log(magicShoe);
+
+Object.prototype.isPrototypeOf(shoe);//true
+shoe.isPrototypeOf(magicShoe); // true
+magicShoe.isPrototypeOf(shoe); // false
+Object.isPrototypeOf(magicShoe); // true
+
+function Shoe (shoeSize,shoeColor, forGender, constructStyle){
+    this.size = shoeSize;
+    this.color = shoeColor;
+    this.gender = forGender;
+    this.construction = constructStyle;
+}
+
+Shoe.prototype = {
+    putOn: function() {alert("shoess on " + this.construction)},
+    takeOff: function() {alert(" what is that smell?")}
+}
+
+var beachShoe = new Shoe (10,"blue", "women", "flipflop");
+
+console.log(beachShoe);
+beachShoe.putOn();
+
