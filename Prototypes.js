@@ -122,3 +122,19 @@ var beachShoe = new Shoe (10,"blue", "women", "flipflop");
 console.log(beachShoe);
 beachShoe.putOn();
 
+// Properties inherited from the Object.prototype
+
+var x = 4;
+var y = "4";
+
+x.valueOf(); // -> 4
+y.valueOf(); // -> "4"
+
+x.valueOf() == y.valueOf(); // -> true
+
+x.valueOf() === y.valueOf(); // -> false
+
+console.log(x==y);
+console.log(x===y);
+console.log(x.valueOf() == y.valueOf());
+console.log(x.valueOf() === y.valueOf());
