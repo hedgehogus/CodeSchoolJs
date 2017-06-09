@@ -37,7 +37,7 @@ Properties of all Objects:
 
  - toFixed();
  - toExponential();
- - toPrecision()
+ - toPrecision();
 
  Function:
 
@@ -120,7 +120,7 @@ Shoe.prototype = {
 var beachShoe = new Shoe (10,"blue", "women", "flipflop");
 
 console.log(beachShoe);
-beachShoe.putOn();
+//beachShoe.putOn();
 
 // Properties inherited from the Object.prototype
 
@@ -138,3 +138,70 @@ console.log(x==y);
 console.log(x===y);
 console.log(x.valueOf() == y.valueOf());
 console.log(x.valueOf() === y.valueOf());
+
+var Tornado = function (category,affectedAreas, windGust){
+    this.category = category;
+    this.affectedAreas = affectedAreas;
+    this.windGust = windGust;
+}
+
+var cities = [["kansas city", 464310],["topeka", 127939], ["lenexa", 49398]];
+var twister = new Tornado("F5", cities, 220);
+
+console.log(twister.valueOf());
+
+Tornado.prototype.valueOf = function() {
+    var sum = 0;
+    for (var i = 0; i < this.affectedAreas.length; i++){
+        sum += this.affectedAreas[i][1];
+    }
+    return sum;
+}
+
+console.log(twister.valueOf());
+
+cities.push(["olathe", 130045]);
+console.log(twister.valueOf());
+
+console.log(x.toString() === y);
+console.log(cities.toString());
+
+Tornado.prototype.toString = function() {
+    var list = "";
+    for (var i = 0; i < this.affectedAreas.length; i++){
+        if (i < this.affectedAreas.length -1) {
+            list = list + this.affectedAreas[i][0] + ", ";
+        } else {
+            list = list + "and " + this.affectedAreas[i][0];
+        }
+    }
+
+    return "This tornado has been classified as an " + this.category + ", with wind gust up to " + this.windGust +
+    "mph. Affected areas are: " + list + ", potentially affecting a population of " + this.valueOf() + ".";
+}
+
+console.log(twister.toString());
+
+console.log(twister.constructor);
+console.log(twister.constructor.prototype);
+console.log(twister.__proto__);
+
+Object.prototype.findOwnerOfProperty = function(propName) {
+    var currentObject = this;
+    while (currentObject !== null) {
+        if (currentObject.hasOwnProperty(propName)){
+            return currentObject;
+        } else {
+            currentObject = currentObject.__proto__;
+        }
+    }
+    return "No property found";
+};
+
+twister.prop = "prop";
+
+console.log(".......");
+console.log(twister.findOwnerOfProperty("prop"));
+console.log(twister.findOwnerOfProperty("category"));
+console.log(twister.findOwnerOfProperty("hasOwnProperty"));
+console.log(twister.findOwnerOfProperty("ffff"));
