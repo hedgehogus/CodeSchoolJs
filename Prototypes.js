@@ -205,3 +205,52 @@ console.log(twister.findOwnerOfProperty("prop"));
 console.log(twister.findOwnerOfProperty("category"));
 console.log(twister.findOwnerOfProperty("hasOwnProperty"));
 console.log(twister.findOwnerOfProperty("ffff"));
+
+
+var animalia = {kingdom:"animalia"};
+var chordata = {phylum: "chordata"};
+var mammalia = {class:"mammalia"};
+mammalia.prototype = chordata;
+chordata.prototype = animalia;
+
+function Mammalia(property){
+    this.property = property;
+}
+
+var ff = new Mammalia("fff");
+
+console.log(mammalia);
+
+console.log(ff);
+
+// Базовый класс «машина» Machine будет реализовывать общего вида методы «включить» enable() и «выключить» disable():
+
+function Machine() {
+  var enabled = false;
+
+  this.enable = function() {
+    enabled = true;
+  };
+
+  this.disable = function() {
+    enabled = false;
+  };
+}
+//Унаследуем от него кофеварку. При этом она получит эти методы автоматически:
+
+function CoffeeMachine(power) {
+  Machine.call(this); // отнаследовать
+
+  var waterAmount = 0;
+
+  this.setWaterAmount = function(amount) {
+    waterAmount = amount;
+  };
+
+}
+
+var coffeeMachine = new CoffeeMachine(10000);
+
+coffeeMachine.enable();
+coffeeMachine.setWaterAmount(100);
+coffeeMachine.disable();
