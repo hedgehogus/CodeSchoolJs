@@ -34,7 +34,22 @@ console.log("current weapon " + (isArthur && isKing ? "Excalibur" : "Longsword")
 
 // logical assignment
 
+//first true value
+// or last false
 var armory = {addSword: function (sword){
     this.swords = this.sword || [];
     this.swords.push(sword);
 }};
+// first false value
+// or last true
+var result1 = undefined && 42;
+
+armory.retrieveSword = function (request){
+    return (this.swords.indexOf(request) >= 0) ? 
+    this.swords.splice(this.sword.indexOf(request),1)[0]:
+    alert("NO " + request+ ", baby!");
+}
+
+var armoryIsOpen = true;
+var isKnight = true;
+var weapon = armory && isKnight && armory.retrieveSword("Katana"); // extended logical assignment
