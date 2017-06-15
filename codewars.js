@@ -63,3 +63,67 @@ function findOdd(a) {
         }
     }
 }
+
+// Convert number to reversed array of digits
+
+function digitize(n) {
+  var arr = [];
+  while (n/10 > 0){
+  var a = n%10;  
+  arr.push(a);   
+  n = (n-n%10)/10;
+  }  
+  return arr;
+}
+
+function digitize(n) {
+  return String(n).split('').map(Number).reverse()
+}
+
+//Count the number of Duplicates
+// Write a function that will return the count of distinct case-insensitive alphabetic 
+// characters and numeric digits that occur more than once in the input string. The input
+// string can be assumed to contain only alphanumeric characters, including digits, uppercase 
+// and lowercase alphabets.
+
+function duplicateCount(text){
+  var arr = text.toLowerCase().split("");
+  var output = 0;
+  while (arr.length > 0){
+  var current = arr.shift();
+  if (current){
+  var isChecked = false;
+    for ( var i =0; i < arr.length; i ++) {
+      if (current == arr[i]){
+        if (!isChecked) {
+          output++;
+          isChecked = true;
+        }
+        arr[i] = undefined;
+      }
+    }
+  }
+  }
+  return output;
+}
+
+function duplicateCount(text){
+  var lower = text.toLowerCase();
+  var count = 0;
+  var used = [];
+  
+  lower.split('').forEach(function(letter) {
+    if (!used.includes(letter) && (lower.split(letter).length - 1) > 1) {
+      count++;
+      used.push(letter);
+    }
+  });
+  
+  return count;
+}
+
+function duplicateCount(text){
+  return text.toLowerCase().split('').filter(function(val, i, arr){
+    return arr.indexOf(val) !== i && arr.lastIndexOf(val) === i;
+  }).length;
+}
