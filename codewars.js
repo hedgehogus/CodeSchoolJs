@@ -127,3 +127,52 @@ function duplicateCount(text){
     return arr.indexOf(val) !== i && arr.lastIndexOf(val) === i;
   }).length;
 }
+
+// Return: a string formatted as a list of names separated by commas except for the last two names, which should be separated by an ampersand.
+
+function list(names){
+  var output = "";
+  for (var i = 0; i < names.length; i ++){   
+    if (i < (names.length - 2)){
+      output = output + names[i]["name"] + ", ";      
+    } else if (i == names.length - 2){
+      output = output + names[i]["name"] + " & ";      
+    } else {
+      output = output + names[i]["name"] ;   
+    }
+  }
+  return output;
+}
+
+// You need to return a string that displays a diamond shape on the screen using asterisk ("*") characters. 
+
+function diamond(n){
+  var diam = null;
+  if (n%2 == 1){
+    diam = "";
+    var limit = parseInt(n/2 + 1);   
+    for( var i = 1; i <= limit; i ++){
+        for (var y = 0; y < limit - i; y ++){
+          diam = diam + " ";
+        }
+        for (var y = 0; y < (i)*2-1; y++){
+          diam = diam + "*";
+        }
+      diam = diam + "\n";    
+    };
+    console.log(limit + "\n")
+    for( var i = limit- 1; i > 0; i --){
+        for (var y = 0; y < limit - i; y ++){
+          diam = diam + " ";
+        }
+        for (var y = 0; y < (i)*2-1; y++){
+          diam = diam + "*";
+        }
+      diam = diam + "\n";    
+    }
+   
+  
+  }
+  console.log(diam);
+  return diam;
+}
