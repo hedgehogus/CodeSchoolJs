@@ -176,3 +176,45 @@ function diamond(n){
   console.log(diam);
   return diam;
 }
+
+//The input is a string str of digits. Cut the string into chunks 
+// (a chunk here is a substring of the initial string) of size sz 
+// (ignore the last chunk if its size is less than sz).
+
+// If a chunk represents an integer such as the sum of the cubes of its digits
+// is divisible by 2, reverse that chunk; otherwise rotate it to the left by one position.
+// Put together these modified chunks and return the result as a string.
+
+function revrot(str, sz) {
+    var arr = [];
+    if (sz < 1){
+      return "";
+    } else if (sz == 1){
+      return str;
+    }
+    while (str.length >= sz){
+        arr.push(str.substring(0,sz));
+        str = str.substring(sz);        
+    }
+    for (var i = 0; i < arr.length; i ++) {
+      var temp = arr[i].split('');
+      var sum = 0;
+      for (var y = 0; y < temp.length; y ++){
+          sum +=temp[y]*temp[y]*temp[y];          
+      }
+      
+      if (sum % 2 == 1){         
+          var a = temp.shift();          
+          temp.push(a);          
+      } else {
+          console.log(temp);
+          temp = temp.reverse();
+          console.log(temp);
+      }
+      arr[i] = temp.join("");
+
+    }
+    console.log(arr);
+    
+    return arr.join("");
+}
