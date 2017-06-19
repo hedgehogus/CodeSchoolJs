@@ -53,3 +53,12 @@ for (var i in invertedPeninsula.inhabitants) {
   console.log(invertedPeninsula.inhabitants[i]);
 }
 console.log(invertedPeninsula.inhabitants.humans.name);
+
+
+// SCRIPT EXECUTION 
+
+// async attribute allow the rest of the page to load before script runs
+
+// <script type="text/javascript"
+//          src = "http://...js"
+//          async></script>
