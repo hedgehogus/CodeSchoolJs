@@ -121,3 +121,18 @@ for (var i = 0, x = kotw.length; i < x ; i ++ ){
 }
 list.appendChild(fragment);
 
+
+// efficient choices for strings concatenation
+
+var knight = "jenna rangerspike";
+var action = " strikes the dragon with a ";
+var weapon = "halbeard";
+
+var turn = "";
+turn +=knight;
+turn +=action;
+turn +=weapon;
+
+var arr = [knight, action, weapon];
+turn = arr.join("\n");
+console.log(turn);
