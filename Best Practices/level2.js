@@ -136,3 +136,21 @@ turn +=weapon;
 var arr = [knight, action, weapon];
 turn = arr.join("\n");
 console.log(turn);
+
+
+// MEASURING PERFORMANCE 1
+
+var s = 0;
+
+console.time("timer");
+for(var i = 0; i < 1000; i ++) {
+    s += i;
+}
+console.timeEnd("timer");
+
+s = 0;
+console.time("hedge");
+for(var i = 0; i < 1000; i ++) {
+    s = i + s;
+}
+console.timeEnd("hedge");
