@@ -154,3 +154,56 @@ for(var i = 0; i < 1000; i ++) {
     s = i + s;
 }
 console.timeEnd("hedge");
+
+// MEASURING PERFORMANCE 2
+
+var rightNow = new Date();
+console.log(rightNow);
+
+// + asks for the specific value in miliseconds
+
+console.log(+rightNow);
+// = console.log(new Number (rightNow));
+// = var rightNow = + new Date();
+
+var startTime = +new Date();
+console.log(startTime);
+for(var i = 0; i < 1000000; i ++) {
+    s = i + s;
+}
+var endTime = +new Date();
+console.log(endTime);
+var elapsedTime = endTime-startTime;
+console.log(elapsedTime);
+
+function SpeedTest(testImplement, testParams, repetitions){
+    this.testImplement = testImplement;
+    this.testParams = testParams;
+    this.repetitions = repetitions || 10000;
+    this.average = 0;
+}
+
+SpeedTest.prototype = {
+    startTest: function (){
+        var beginTime, endTime, sumTimes = 0;
+        for (var i = 0, x = this.repetitions; i < x; i ++){
+            beginTime = +new Date();
+            this.testImplement(this.testParams);
+            endTime = +new Date();
+            sumTimes += endTime-beginTime;
+        }
+        this.average = sumTimes/ this.repetitions;
+        return console.log("Average execution across " + this.repetitions + ": " + this.average);
+    }
+}
+
+var fun = function(count){
+    var s = 0;
+    for(var i = 0; i < count; i ++) {
+        var temp = i + 1;
+        s += temp ;
+    }
+}
+
+var test = new SpeedTest(fun, 100000);
+test.startTest();
