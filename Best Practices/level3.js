@@ -67,3 +67,71 @@ function assignKnightsArmor( knights, armorAvail){
 }
 
 assignKnightsArmor (newbs, armorList);
+
+// EXCEPTION HANDLING
+
+try {
+    alert(alarm); // reference error
+} catch (error){
+    console.log(" oh no \n" + error);
+}
+
+// error types allow us to take more informed action
+list = ["yyy"];
+
+try {
+    var newHallOfFame = ["dask frosting", " render tallborn"];
+    if (list === undefined){
+        throw new ReferenceError();
+    }
+    if ((list instanceof Array) === false){
+        throw new TypeError();
+    }
+    list = list.concat(newHallOfFame);
+} catch (error){
+    if (error instanceof ReferenceError){
+        alert(error + "\n" + " the HoF roster does not exist as \"list\"!\n" 
+        + "check for relocation in master document");
+    }
+    if (error instanceof TypeError){
+        alert( error + "\n" + "list exists, but is no longer an Array . \n" +
+        "check for disastrous overwrite");
+    }
+} finally { // will execute whether try mes with succes or failure. 
+    //Now we'll know exactly what list contsined at the end of operatio, if anything
+    console.log(list);
+}
+
+//nested catch blocks
+
+function changeInnerHTMLByIdOrExisting(id, update, existing){
+    try{
+        var newElement = undefined;
+        document.getElementById(id).innerHTML = update;
+    } catch (error){
+        try {
+            var elements = document.getElementsByTagName('*');
+            for (var i = 0, x = elements.length; i<x; i++){
+                if(elements[i].innerHTML === existing){
+                    elements[i].innerHTML = update;
+                    id = elements[i].id;
+                    break;
+                }
+                if (i === x){
+                    throw new Error("custom error message");
+                }
+            }
+        }catch(error2){
+            alert( error2.message + " \n Creating new text node.");
+            newElement = document.createTextNode(update);
+
+        }
+    } finally {
+        if (newElement !== undefined){
+            console.log("returning new text node");
+            return newElement;
+        } else {
+            console.log (" modified element " + (id||existing));
+        }
+    }
+}
