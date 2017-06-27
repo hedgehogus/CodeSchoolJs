@@ -135,3 +135,23 @@ function changeInnerHTMLByIdOrExisting(id, update, existing){
         }
     }
 }
+
+// WHAT NOT TO DO
+
+// JavaScripts "with" keyword is somewhat unreliable and often expensive, 
+// so it generally avoided in practice
+
+
+var castle ={
+    soldiers:865,
+    keep: {
+        soldiers:19,
+        drawbridge : {
+            soldiers: 8,
+            capacity: 20,
+            open: function(){
+                alert("rrrrrrrBang");
+            }
+    }
+    }
+}
