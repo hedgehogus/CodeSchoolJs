@@ -150,8 +150,31 @@ var castle ={
             soldiers: 8,
             capacity: 20,
             open: function(){
-                alert("rrrrrrrBang");
+                ///alert("rrrrrrrBang");
             }
-    }
+        }
     }
 }
+
+var reinforcements  = 12;
+with (castle.keep.drawbridge){
+    if (capacity >= soldiers + reinforcements){
+        open();
+    } else {
+        alert ("reinforcement would require split unit");
+    }
+}
+
+// eval statement - method will take a string as a parameter, start JS compiler
+// and treat that string as if were a line of code to execute
+
+var regiment2 = {
+    motto: "222"
+};
+
+function assignRegimentMotto(number, motto){
+    eval("regiment" + number + ".motto = '" + motto +"'");
+}
+
+assignRegimentMotto(2, " The best of' the best");
+console.log(regiment2.motto);
