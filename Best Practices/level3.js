@@ -209,3 +209,15 @@ var regimentJSON = '{' +
 var regiment = JSON.parse(regimentJSON);
 
 console.log(regiment);
+
+
+
+//LEAVING OFF {}
+//Just because we can leave curly braces off single-statement blocks of code,
+// doesnt mean we should
+
+if (isKing)
+    weapon = "Excalibur";
+    //alert("....");
+else 
+    weapon = "longsword";
