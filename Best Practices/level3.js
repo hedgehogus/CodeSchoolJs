@@ -176,5 +176,36 @@ function assignRegimentMotto(number, motto){
     eval("regiment" + number + ".motto = '" + motto +"'");
 }
 
-assignRegimentMotto(2, " The best of' the best");
+assignRegimentMotto(2, " The best of the best");
 console.log(regiment2.motto);
+
+// assignRegimentMotto(2, " The best' of the best");
+// the resulting value will be invalid because of extra apostrophe, which makes
+// the compiler is complete... until it sees more stuff and then marks the code as invalid js
+
+//try to minimize the operations that your new mini-program needs to engage in which will also
+//have the benefit of improving your debug capability
+
+function assignRegimentMotto(number, motto){
+    eval("regiment" + number).motto = motto;
+}
+
+// eval is often misused for just this kind of mapping numbers,but an array is much more efficient
+
+var regiments = [/* an bunch of ordered regiment objects*/];
+function assignRegimentMotto (number, motto){
+    //regiments[number].motto = motto;
+}
+
+var regimentJSON = '{' +
+    '"regiment1": {"motto": "fffff",'+
+                  '"numMembers": 46,' +
+                  '"captain": "jar treen"},'+
+    '"regiment2": {"motto": "pppp",'+
+                  '"numMembers": 40,' +
+                  '"captain": "maximo"}'+
+    '}';
+
+var regiment = JSON.parse(regimentJSON);
+
+console.log(regiment);
