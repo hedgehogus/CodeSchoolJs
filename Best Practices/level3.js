@@ -216,8 +216,52 @@ console.log(regiment);
 //Just because we can leave curly braces off single-statement blocks of code,
 // doesnt mean we should
 
+/*
 if (isKing)
     weapon = "Excalibur";
     //alert("....");
 else 
-    weapon = "longsword";
+    weapon = "longsword";*/
+
+
+
+//////////////////////
+//  NUMBER NONSENSE //
+//////////////////////
+
+console.log(0.1 + 0.2);
+console.log(0.1 + 0.2 + 0.3);
+console.log((0.1 + 0.2) + 0.3);
+console.log(0.1 + (0.2 + 0.3));
+
+// toFixed() will allow you to select the exact amount of decimal places to display
+// returns string value
+
+var num = 0.1 + 0.2;
+console.log(num.toFixed(1));
+console.log(num.toFixed(2));
+console.log(num.toFixed(3));
+
+function tax(price, percent){
+    return (price*percent/100).toFixed(2);
+}
+console.log(tax(300, 20));
+
+// a combination of toFixed() and parseFloat() will let us use values of exact length
+// in other
+
+function tax(price, percent){
+    return parseFloat((price*percent/100).toFixed(2));
+}
+
+// instead of looking for a floating point number, parseInt() seeks the first available integer
+// at the front of string
+
+parseInt("88"); // -> 88
+parseInt("88 keys on the piano"); // -> 88
+parseInt("there are 88 keys") // -> NaN
+parseInt("9.85") // -> 9 ,  it will trim eny decimals numbers without rounding
+
+console.log(parseInt("021"));
+
+
