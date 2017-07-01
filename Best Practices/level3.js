@@ -264,4 +264,20 @@ parseInt("9.85") // -> 9 ,  it will trim eny decimals numbers without rounding
 
 console.log(parseInt("021"));
 
+parseInt("021", 10); // will accept any RADIX VALUE from 2-36 upon which to base the numerical
+// string it has received. Do this for the rest of your natural born life
 
+
+// TESTING FOR NUMBER PRESENCE BEFORE OPERATIONS
+
+typeof NaN; // -> "number"
+console.log( NaN === NaN); // -> false
+console.log( isNaN("42")); // -> false
+
+function isThisActuallyANumberDontLie(data){
+    return(typeof data === "number" && !isNaN(data));
+}
+
+console.log(isThisActuallyANumberDontLie(640));// -> true
+console.log(isThisActuallyANumberDontLie("640"));// -> false
+console.log(isThisActuallyANumberDontLie(NaN));// -> false
