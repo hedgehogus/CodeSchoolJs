@@ -281,3 +281,25 @@ function isThisActuallyANumberDontLie(data){
 console.log(isThisActuallyANumberDontLie(640));// -> true
 console.log(isThisActuallyANumberDontLie("640"));// -> false
 console.log(isThisActuallyANumberDontLie(NaN));// -> false
+
+function checkValidZip(){
+    var entry = document.getElementById("zip").value;
+    var userZip = parseInt(entry);
+    try{
+        if(isThisActuallyANumberDontLie( userZip)){
+            if(userZip.toFixed(0).length === 5){
+                return true;
+            } else {
+                throw new Error("nope");
+            }
+        } else {
+            throw new error ("nope");
+        }
+    } catch (e) {
+        if (e.message === "nope"){
+            alert("please enter a valid zip, dude.");
+            return false;
+        }
+        // other error responses go here...
+    }
+}
