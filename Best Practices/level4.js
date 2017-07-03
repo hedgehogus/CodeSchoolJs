@@ -29,4 +29,5 @@ var HOFMASTER = {
     }
 };
 
+
 HOFMASTER.BIOGRAPHIES.unfoldBio(HOFMASTER.list[1]);
