@@ -53,3 +53,32 @@ var ARMORY = (function(){
     };
 
 })();
+
+
+
+///////////////////
+// GLOBAL IMPORT //
+///////////////////
+
+var wartime = true;
+var ARMORY = (function(war){
+
+    var weaponList = [/*list*/];
+    var armorList = [/*list*/];
+
+    var removeWeapon = function(/*...*/){};
+    var replaceWeapon = function(/*...*/){};
+    var removeArmor = function(/*...*/){};
+    var replaceArmor = function(/*...*/){};
+
+    return {
+        makeWeaponRequest : function(/*...*/){/*calls on invisible removeWeapon*/
+            if (war){
+                // let civilians have weaponry
+            }
+        },
+        makeArmorRequest : function(/*...*/){},
+    };
+
+})(wartime);
+
