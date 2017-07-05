@@ -29,5 +29,27 @@ var HOFMASTER = {
     }
 };
 
-
 HOFMASTER.BIOGRAPHIES.unfoldBio(HOFMASTER.list[1]);
+
+
+
+////////////////////////
+// ANONYMOUS CLOSURES //
+////////////////////////
+
+var ARMORY = (function(){
+
+    var weaponList = [/*list*/];
+    var armorList = [/*list*/];
+
+    var removeWeapon = function(/*...*/){};
+    var replaceWeapon = function(/*...*/){};
+    var removeArmor = function(/*...*/){};
+    var replaceArmor = function(/*...*/){};
+
+    return {
+        makeWeaponRequest : function(/*...*/){/*calls on invisible removeWeapon*/},
+        makeArmorRequest : function(/*...*/){},
+    };
+
+})();
