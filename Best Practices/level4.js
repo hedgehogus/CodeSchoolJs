@@ -62,6 +62,8 @@ var ARMORY = (function(){
 
 var wartime = true;
 var ARMORY = (function(war){
+    // now functions parameter creates a modifiable value for use in the module
+    // while the global value stays protected if necessary
 
     var weaponList = [/*list*/];
     var armorList = [/*list*/];
