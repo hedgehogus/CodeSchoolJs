@@ -84,3 +84,27 @@ var ARMORY = (function(war){
 
 })(wartime);
 
+
+
+//////////////////
+// Augmentation //
+//////////////////
+
+// new js file
+
+ARMORY = function(oldNs){
+    // since our namespace is global, we'll import it as a local,
+    // in order to make some modofications to a temporary object
+
+    var oilBarrels = 1000;
+    var catapults = ["Stonerlinger", "rockRain", "The giants arm"];
+
+    oldNS.assignCatapult = function ( regiment){
+        // hooks up a regiment with a sweet catapult
+        // and some oil barrels
+    }
+
+}(ARMORY);// We pass in the old module to our modifiing
+
+
+
