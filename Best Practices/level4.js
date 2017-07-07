@@ -104,6 +104,8 @@ ARMORY = function(oldNs){
         // and some oil barrels
     }
 
+    return oldNs;
+
 }(ARMORY);// We pass in the old module to our modifiing
 
 
