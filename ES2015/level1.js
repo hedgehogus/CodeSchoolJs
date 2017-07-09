@@ -41,3 +41,34 @@ flashMessage = "goodbye";
 
 //redeclaring is not allowed
 // let flashMessage = "goodbye";
+
+
+///////////////
+//USING CONST//
+///////////////
+
+function loadProfiles(userName){
+
+    const MAX_USERS = 3;
+
+   // MAX_USERS = 10; // probably runs syntax error, but outcome will vary depending on the JS engine
+
+    if (userName.length > MAX_USERS){
+        let loadingMessage = "This might take a while...";
+        _displaySpinner(loadingMessage);
+    } else {
+        let flashMessage = "loading Profiles";
+        _displayFlash(flashMessage);
+    }
+
+    const MAX_REPLIES = 3;
+
+    if (someElement > MAX_REPLIES){
+        //...
+    }
+}
+
+// must be assingn initial value
+
+// const MAX_USERS;
+// MAX_USERS = 3; => this code will generate an error and will not work
