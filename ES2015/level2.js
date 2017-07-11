@@ -92,9 +92,27 @@ function TagComponent (target, urlPath){
     this.urlPath = urlPath;
 }
 
+function getRequest (first, second){
+    let response = ["fff", "sss", "ttt"];
+    second(response);
+};
+
 TagComponent.prototype.render = function(){
     getRequest(this.urlPath, function(data){
-        //...
+        let tags = data;
+        displayTags(this.targetElement, ...tags);//returns undefined target element
     });
 }
+
+
+TagComponent.prototype.render = function(){
+    getRequest(this.urlPath, (data) =>{ // lexical binding, which means that they bind 
+                                        // to the scope of where they're defined 
+        let tags = data;
+        displayTags(this.targetElement, ...tags);
+    });
+}
+
+let tagComponent = new TagComponent ("target1", "ddff/ddfd/fgfgf");
+tagComponent.render();
 
