@@ -37,6 +37,8 @@ function setPageThread(name, {popular, expires, activeClass} = {}){
 // REST PARAMS //
 /////////////////
 
+// used in function definition
+
 function displayTags(targetElement){
     let str = "";
     for(let i in arguments){
@@ -66,13 +68,33 @@ function displayTags(targetElement, ...tags){
 displayTags("target","fff", "ddd", "aaa");
 displayTags("target");
 
-///////////////
-// SPREAD OP //
-///////////////
+/////////////////////
+// SPREAD OPERATOR //
+/////////////////////
 
-getRequest("/fgfg/fgfg/fgfg", function(data){
-    let tags = data.tags;
-    displayTags(...tags);
-});
+// used in function invocation
 
-let arr = 
+// getRequest("/fgfg/fgfg/fgfg", function(data){
+//    let tags = data.tags;
+//    displayTags(...tags);
+// });
+
+let arr = ["first", "second", "something", "third"];
+displayTags(...arr);
+displayTags("target", ...arr);
+
+/////////////////////
+// ARROW FUNCTIONS //
+/////////////////////
+
+function TagComponent (target, urlPath){
+    this.targetElement = target;
+    this.urlPath = urlPath;
+}
+
+TagComponent.prototype.render = function(){
+    getRequest(this.urlPath, function(data){
+        //...
+    });
+}
+
