@@ -271,3 +271,25 @@ var oposite = {
 // titleCase('a clash of KINGS', 'a an the of') // should return: 'A Clash of Kings'
 // titleCase('THE WIND IN THE WILLOWS', 'The In') // should return: 'The Wind in the Willows'
 // titleCase('the quick brown fox') // should return: 'The Quick Brown Fox'
+
+function titleCase(title, minorWords) {
+  let exc = typeof minorWords !== "undefined" ? minorWords.toLowerCase().split(" ") : [];
+  let arr = title.toLowerCase().split(" ");
+  
+  arr[0] = capital(arr[0]);
+    
+  for (let i = 1, x = arr.length; i < x; i ++){
+    console.log(exc.indexOf(arr[i]));
+    if(exc.indexOf(arr[i]) < 0){
+        arr[i] = capital(arr[i]);
+    }
+  
+  }
+  return arr.join(" ");
+}
+function capital(word){  
+  let arr = word.split("");   
+  if(typeof arr[0] === "undefined"){return};
+  arr[0] = arr[0].toUpperCase();
+  return arr.join("");
+}
