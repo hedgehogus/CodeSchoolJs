@@ -94,3 +94,8 @@ function buildUser( first, last, postCount){
     let fullName = `${first} ${last}`;
     const ACTIVE_POST_COUNT = 10;
 }
+
+
+///////////////////
+// OBJECT.ASSIGN //
+///////////////////
