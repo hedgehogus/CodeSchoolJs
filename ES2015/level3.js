@@ -105,7 +105,7 @@ function buildUser( first, last, postCount){
 
 // in case of duplicate properties on source objects, the value from the last object on the chain always prevails
 
-function countdownTime(target, timeLeft, options = {}){
+function countdownTimer(target, timeLeft, options = {}){
 
     let defaults = {
         container: ".timer-dispaly",
@@ -116,4 +116,12 @@ function countdownTime(target, timeLeft, options = {}){
         timeoutSoonTime: 10
     };
 
+    let settings = Object.assign({}, defaults, options);
+
+    if (settings.timeUnit !== defaults.timeUnit){
+        _conversionFunction(timeLeft, settings.timeUnit);
+    }
+
 }
+
+countdownTimer($('.btn-undo'), 60, {container: '.new-post-options'});
