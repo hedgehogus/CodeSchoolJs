@@ -99,3 +99,21 @@ function buildUser( first, last, postCount){
 ///////////////////
 // OBJECT.ASSIGN //
 ///////////////////
+
+// Object.assign copies properties from one or more sourse object to a target object specified as a very 
+// first argument
+
+// in case of duplicate properties on source objects, the value from the last object on the chain always prevails
+
+function countdownTime(target, timeLeft, options = {}){
+
+    let defaults = {
+        container: ".timer-dispaly",
+        timeUnit: "seconds",
+        clonedDataAttribute: "cloned",
+        timeoutClass: ".is-timeout",
+        timeoutSoonClass: ".is-timeout_soon",
+        timeoutSoonTime: 10
+    };
+
+}
