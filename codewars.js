@@ -340,3 +340,17 @@ var sum_pairs = function (array, s) {
         }
     }
 };
+
+// Build a pile of Cubes
+// The parameter of the function findNb (find_nb, find-nb, findNb) will be an integer m and you have to return 
+// the integer n such as n^3 + (n-1)^3 + ... + 1^3 = m if such a n exists or -1 if there is no such n.
+
+function findNb(m) {
+    let rem = m;
+    let n = 0;
+    while (rem > 0){
+      n ++;
+      rem = rem - n*n*n;
+    }
+    return rem === 0 ? n : -1;
+}
