@@ -293,3 +293,24 @@ function capital(word){
   arr[0] = arr[0].toUpperCase();
   return arr.join("");
 }
+
+// Given a list of integers and a single sum value, return the first two values 
+// (parse from the left please) in order of appearance that add up to form the sum.
+
+var sum_pairs=function(ints, s){
+   
+    let min = ints.length;
+    let output;
+
+    for (let i = 0, x = ints.length; i < x ; i ++){
+        for (let j = i + 1; j < x; j++){        
+            if ((ints[i]+ints[j] === s) && (j-i < min)) {
+               output = [ints[i], ints[j]]; 
+               min = j-i;
+               console.log(output);
+            }
+        }      
+    }    
+    
+    return output;
+}
