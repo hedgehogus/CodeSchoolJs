@@ -314,3 +314,14 @@ var sum_pairs=function(ints, s){
     
     return output;
 }
+
+var sum_pairs=function(ints, s){
+   
+    for ( let i = 1, x = ints.length; i < x; i ++){
+      for ( let j = 0, y = x - i; j < y; j ++){
+          if ( ints[j]+ ints[j+i] === s){
+            return [ints[j], ints[j+i]];
+          }
+      }    
+    } 
+}
