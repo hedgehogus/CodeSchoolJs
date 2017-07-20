@@ -94,3 +94,25 @@ console.log(admin);
 
 admin = users.find( user => user.admin);
 console.log(admin);
+
+// Which of the following options will return the first topic
+// object that is not locked? Check all that apply. 
+
+
+let recentTopics = [
+  { 
+    title: "Semi-colons: Good or Bad?",
+    isLocked: true 
+  },
+  { 
+    title: "New JavaScript Framework Released", 
+    isLocked: true 
+  },
+  { 
+    title: "ES2015 - The Shape of JavaScript to Come", 
+    isLocked: false 
+  }
+];
+
+recentTopics.find( topic => !topic.isLocked );
+recentTopics.find( (topic) => !topic.isLocked );
