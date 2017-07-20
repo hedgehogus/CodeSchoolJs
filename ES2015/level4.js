@@ -54,3 +54,26 @@ for (let name of names){
 }
 
 // the for ...of statement cannot be used to iterate over properties in plain JS objects out-of-the box
+
+let post = {
+    title: "New Features in JS",
+    replies: 19,
+    lastReplyFrom: "sam"
+};
+
+//for (let property of post){      => typeError: post[Symbol.iterator] is not a function
+//    console.log("Value: ", property);
+//}
+
+// in order to work with for of, objects need a special function assigned to the Symbol.iterator property
+// the presence of this property allows us to know whether an object is iterable
+
+let str = "string";
+
+console.log( typeof names[Symbol.iterator]);
+console.log( typeof post[Symbol.iterator]);
+console.log( typeof str[Symbol.iterator]);
+
+for ( let one of str){
+    console.log(one);
+}
