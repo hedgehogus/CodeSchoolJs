@@ -77,3 +77,20 @@ console.log( typeof str[Symbol.iterator]);
 for ( let one of str){
     console.log(one);
 }
+
+
+// 3. Array.find
+
+users = [
+    {login: "sam", admin:false },
+    {login: "brook", admin:true },
+    {login: "tyler", admin:true },
+];
+
+let admin = users.find ( (user) => { // testing function
+    return user.admin;
+});
+console.log(admin);
+
+admin = users.find( user => user.admin);
+console.log(admin);
