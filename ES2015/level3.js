@@ -125,3 +125,4 @@ function countdownTimer(target, timeLeft, options = {}){
 }
 
 countdownTimer($('.btn-undo'), 60, {container: '.new-post-options'});
+
