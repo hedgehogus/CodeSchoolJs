@@ -121,3 +121,22 @@ recentTopics.find( (topic) => !topic.isLocked );
 //////////
 // MAPS //
 //////////
+
+// Maps are data structure composed of a collection of key/value pairs. 
+// they are very useful to store simple data, such as property values
+
+// ISSUES
+
+// When using Objects as maps, its keys are always converted to string
+
+let user1 = { name: "sam"};
+let user2 = { name: "tyler"};
+
+let totalReplies = {};
+totalReplies[user1] = 5;
+totalReplies[user2] = 42;
+
+console.log (totalReplies[user1]);
+console.log (totalReplies[user1]);
+
+console. log(totalReplies);
