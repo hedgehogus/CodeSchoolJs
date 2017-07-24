@@ -139,4 +139,18 @@ totalReplies[user2] = 42;
 console.log (totalReplies[user1]);
 console.log (totalReplies[user1]);
 
-console. log(totalReplies);
+console.log(totalReplies);
+console.log ( Object.keys(totalReplies));
+
+// the map object is a simple key/value data structure
+// any value may be used as either a key or a value, and objs are not converted to string
+
+totalReplies = new Map();
+totalReplies.set(user1, 5);
+totalReplies.set(user2, 42);
+
+console.log(totalReplies.get(user1));
+console.log(totalReplies.get(user2));
+
+// use maps when keys are unknown until runtime
+
