@@ -186,3 +186,27 @@ for (let [key, value] of mapSettings){
 
 // the WeakMap is a type of map where only objects can be passed as keys.
 // primitive data types - such as strings, numbers, booleans, etc. - are not allowed
+
+let user = {};
+let comment = {};
+
+mapSettings = new WeakMap();
+mapSettings.set(user, "user");
+mapSettings.set(comment, "comment");
+
+console.log(mapSettings.get(user));
+console.log(mapSettings.get(comment));
+
+// mapSettings.set("title", "es2015"); => invalid value used as weak map key
+
+// all available methods on a weakMap require acces to an object used as a key
+
+console.log(mapSettings.get(user)); // returns an entry
+console.log(mapSettings.has(user)); // checks for the presence of a key - true or false
+console.log(mapSettings.delete(user)); // removes an entry and returns a boolean based on wheter that entry existed
+console.log(mapSettings.delete(name));
+
+// WeakMaps are not iterable, therefore they cant be used with for of
+
+// weak maps are better with memory
+// individual entries in weakMap can be garbage collected while the weakmap itself still exists
