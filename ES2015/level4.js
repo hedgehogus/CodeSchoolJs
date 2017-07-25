@@ -182,6 +182,9 @@ for (let [key, value] of mapSettings){
     console.log(`${key} = ${value}`);
 }
 
+console.log("map obj");
+console.log(mapSettings);
+
 // WEAK MAP
 
 // the WeakMap is a type of map where only objects can be passed as keys.
@@ -210,3 +213,42 @@ console.log(mapSettings.delete(name));
 
 // weak maps are better with memory
 // individual entries in weakMap can be garbage collected while the weakmap itself still exists
+
+
+
+
+//////////
+// SETS //
+//////////
+
+// the set object stores unique values of any type, whether primitive values or object references
+
+let tags = new Set();
+
+tags.add("java script");
+tags.add("programing");
+tags.add({version: "2015"}); // both primitive values and objects are allowed
+tags.add("web");
+tags.add("web"); // duplicate entries are allowed
+
+console.log("total items", tags.size);
+console.log(tags);
+console.log(tags.has("web"));
+console.log(tags.has("web1"));
+tags.delete("web");
+
+// set objects are iterable, which means they can be used with for of and destructuring
+
+for ( let item of tags){
+    console.log(item);
+}
+
+let [a1,a2,a3,a4] = tags;
+console.log(a1,a2,a3,a4);
+
+// weakSet is a type of set where only objects are allowed to be stored
+
+let weakTags = new WeakSet();
+
+weakTags.add("JavaScript");
+
