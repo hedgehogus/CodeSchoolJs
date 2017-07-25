@@ -152,5 +152,37 @@ totalReplies.set(user2, 42);
 console.log(totalReplies.get(user1));
 console.log(totalReplies.get(user2));
 
+
 // use maps when keys are unknown until runtime
 
+let recentPosts = new Map();
+
+/** createPost( newPost, (data) => {
+        recentPosts.set(data.author, data.message);
+    }
+); **/
+
+// somwhere elsein th code
+
+/** socket.on("new post", function(data){
+    recentPosts.set(data.outhor, data.message);
+}); **/
+
+
+//---------------------------
+// maps are iterable, so they can be used in for of loop. Each run of the loop 
+// returns a [key,value] pair for an entry in the map.
+
+let mapSettings = new Map();
+mapSettings.set("user", "sam");
+mapSettings.set("topic", "es2015");
+mapSettings.set("replies", ["cant wait", "so cool"]);
+
+for (let [key, value] of mapSettings){
+    console.log(`${key} = ${value}`);
+}
+
+// WEAK MAP
+
+// the WeakMap is a type of map where only objects can be passed as keys.
+// primitive data types - such as strings, numbers, booleans, etc. - are not allowed
