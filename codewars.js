@@ -394,3 +394,24 @@ Math.ceil = function(number) {
 Math.floor = function(number) {
   return parseInt(number);
 };
+
+
+//How many ways can you make the sum of a number?
+
+function sum(num) {
+  let a = {sum: 0};
+  partition(num, num,"", a)
+  return a.sum;
+}
+
+function partition(n, max,pref,  a) {
+        if (n == 0) {  
+        a.sum ++;        
+            return;
+        }
+  
+        for (let i = Math.min(max, n); i >= 1; i--) {
+            partition(n-i, i, pref + " " + i, a);
+        }
+    }
+    
