@@ -250,5 +250,31 @@ console.log(a1,a2,a3,a4);
 
 let weakTags = new WeakSet();
 
-weakTags.add("JavaScript");
+// weakTags.add("JavaScript"); -> type error
+weakTags.add({name: "java Script"});
+let iOS = {name:"iOS"};
+weakTags.add(iOS);
+
+weakTags.has(iOS);
+weakTags.delete(iOS);
+
+// WeakSets cannot be used with for of and they offer no methods for reading values from it
+
+
+let readPosts = new WeakSet();
+
+// when post is clecked on
+postList.addEventListener('click', (event) =>{
+    //...
+    readPosts.add(post);
+});
+
+// ... rendering posts
+for(let post of postArray){
+    if(!readPosts.has(post)){
+        _addNewPostClass(post.element);
+    }
+}
+
+
 
