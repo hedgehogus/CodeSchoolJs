@@ -415,3 +415,25 @@ function partition(n, max,pref,  a) {
         }
     }
     
+
+
+// In mathematics, a Diophantine equation is a polynomial equation,
+// usually in two or more unknowns, such that only the integer solutions are sought or studied.
+
+// In this kata we want to find all integers x, y (x >= 0, y >= 0)
+// solutions of a diophantine equation of the form
+
+// x ^ 2 - 4 * y ^ 2 = n
+
+
+function solequa(n) {
+  let output = [];
+  
+  for ( let y = n; y >= 0 ; y--){
+      let x = Math.sqrt(n + 4*y*y);
+      if (parseInt(x) === x){
+      output.push([x,y]);
+      }
+  }
+	return output;
+}
