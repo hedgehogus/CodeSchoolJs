@@ -47,3 +47,39 @@ class SponsorWidget {
 let sponsorWidget = new SponsorWidget(name, description, url);
 sponsorWidget.render();
 
+// we can use class inheritance to reduce code repetition. 
+// Child classes inherit and specialize behavior defined in parent classes
+
+class Widget {
+
+    constructor(){
+        this.baseCSS = "site-widget";
+    }
+
+    parse(value){
+        //...
+    }
+}
+
+class SponsorWidget extends Widget{
+
+    constructor(name, description, url){
+        super(); // runs parent's setup code
+
+        //...
+    }
+
+    parse(){
+        let parsedName = super.parse(this.name);
+
+        return `Sponsor: ${parsedName}`;
+    }
+
+    render(){
+        let parsedName = this.parse();
+        let css = this._buildCSS(this.baseCSS);
+
+        // ...
+    }
+
+}
