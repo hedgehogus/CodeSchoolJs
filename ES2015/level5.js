@@ -81,5 +81,10 @@ class SponsorWidget extends Widget{
 
         // ...
     }
-
 }
+
+
+/////////////
+// MODULES //
+//  PART 1 //
+/////////////
