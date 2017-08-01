@@ -88,3 +88,6 @@ class SponsorWidget extends Widget{
 // MODULES //
 //  PART 1 //
 /////////////
+
+import flashMessage from './flash-message';
+flashMessage("hello");
