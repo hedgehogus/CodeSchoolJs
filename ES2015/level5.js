@@ -1,3 +1,4 @@
+
 /////////////
 // CLASSES //
 /////////////
@@ -20,6 +21,7 @@ let sponsorWidget = new SponsorWidget(name, description, url);
 sponsorWidget.render();
 
 // using the nee class syntax
+/*
 
 class SponsorWidget {
 
@@ -44,7 +46,8 @@ class SponsorWidget {
 
 // the SponsorWidget function still use it just like before
 
-let sponsorWidget = new SponsorWidget(name, description, url);
+
+sponsorWidget = new SponsorWidget(name, description, url);
 sponsorWidget.render();
 
 // we can use class inheritance to reduce code repetition. 
@@ -82,12 +85,22 @@ class SponsorWidget extends Widget{
         // ...
     }
 }
+*/
 
 
 /////////////
 // MODULES //
 //  PART 1 //
-/////////////
+///////////// 
 
-import flashMessage from './flash-message';
-flashMessage("hello");
+import {alertMessage, logMessage} from './flash-message';
+// import ownname from './flash-message' // if default function, can use every name
+
+alertMessage("hello");
+logMessage("hello");
+
+ import *  as flash from './flash-message';
+// functions become object "flash" properties
+
+flash.alertMessage("hello alert");
+flash.logMessage("hello log")
