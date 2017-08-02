@@ -93,6 +93,8 @@ class SponsorWidget extends Widget{
 //  PART 1 //
 ///////////// 
 
+//(flash-message.js)
+
 import {alertMessage, logMessage} from './flash-message';
 // import ownname from './flash-message' // if default function, can use every name
 
@@ -104,3 +106,43 @@ logMessage("hello");
 
 flash.alertMessage("hello alert");
 flash.logMessage("hello log")
+
+
+/////////////
+// MODULES //
+//  PART 2 //
+///////////// 
+
+// placing constants on their own module allows them to be reused across other
+// modules and hides implementation details( a.k.a. encapsulation )
+
+
+// to import constants we can use the exact same syntax for importing functions
+
+import {MAX_USERS, MAX_REPLIES} from './flash-message'
+
+function loadProfiles(userNames){
+    
+    if(userNames.length > MAX_USERS){
+        //...
+    }
+
+    if(someElement > MAX_REPLIES){
+        //...
+    }
+}
+
+// imported classes are assigned to a variable using import and can then be used to create new instances
+
+import FlashMessage from './flash-message';
+
+let flash = new FlashMessage("hello");
+flash.renderAlert();
+flash.renderLog();
+
+//names must match
+import {FlashMessage} from './flash-message';
+// the same code
+let flash = new FlashMessage("hello");
+flash.renderAlert();
+flash.renderLog();
