@@ -1,7 +1,5 @@
 function mixedFraction(s){
   let arr = s.split("/");
-  
-   console.log(s);
   if (arr[1] == 0){
     throw new IllegalArgumentException("ZeroDivisionError");
   }
@@ -16,12 +14,12 @@ function mixedFraction(s){
     div = -div;
   }
 
-   for (let i = 2; i <= rem; i++){
+   for (let i = 2; i <= Math.abs(rem); i++){
       let repeat = true;
       while (repeat){
       let a1 = rem/i;
       let a2 = div/i;
-      //console.log(rem + '/' + div);
+      console.log(rem + '/' + div);
       if (Number.isInteger(a1) && Number.isInteger(a2)){
         rem = a1;
         div = a2;
